@@ -51,39 +51,70 @@ return {
   },
   keys = {
     {
-      "<leader>f<space>",
+      '<leader>tf',
       function()
-        require("snacks").picker.smart()
+        require('snacks').terminal.toggle(vim.o.shell, {
+          id = 'float-term',
+          win = {
+            position = 'float',
+            width = 0.7,
+            height = 0.6,
+            border = 'rounded',
+          },
+        })
       end,
-      desc = "Smart find files",
+      mode = { 'n', 't' },
+      desc = 'Toggle Floating Terminal',
     },
     {
-      "<leader>ff",
+      '<leader>f<space>',
       function()
-        require("snacks").picker.files()
+        require('snacks').picker.smart()
       end,
-      desc = "Find files",
+      desc = 'Smart find files',
     },
     {
-      "<leader>fw",
+      '<leader>ff',
       function()
-        require("snacks").picker.grep()
+        require('snacks').picker.files()
       end,
-      desc = "Grep files",
+      desc = 'Find files',
     },
     {
-      "<leader>g",
+      '<leader>fw',
       function()
-        require("snacks").lazygit()
+        require('snacks').picker.grep()
       end,
-      desc = "Lazygit",
+      desc = 'Grep files',
     },
     {
-      "<leader>e",
+      '<leader>g',
       function()
-        require("snacks").explorer()
+        require('snacks').lazygit()
       end,
-      desc = "Explorer",
+      desc = 'Lazygit',
     },
-  },
+    {
+      '<leader>e',
+      function()
+        require('snacks').explorer()
+      end,
+      desc = 'Explorer',
+    },
+    {
+      '<C-\\>',
+      function()
+        require('snacks').terminal.toggle()
+      end,
+      mode = { 'n', 't' },
+      desc = 'Toggle terminal',
+    },
+    {
+      '<leader>ft',
+      function()
+        require('snacks').terminal 'htop'
+      end,
+      desc = 'Floating terminal (htop)',
+    },
+  }
 }

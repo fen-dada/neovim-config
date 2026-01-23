@@ -126,6 +126,11 @@ end)
 
 vim.cmd([[set cmdheight=0]])
 
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'cpp', 'haskell', 'rust', 'c', 'lua' },
+  callback = function() vim.treesitter.start() end,
+})
+
 -- Highlight when yanking (copying) text
 vim.api.nvim_create_autocmd("TextYankPost", {
   desc = "Highlight when yanking (copying) text",

@@ -1,11 +1,11 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  dependencies = { 'moonbit-community/moonbit.nvim' },
-  event = { "BufReadPost", "BufNewFile" },
+  branch = "main",
+  main = "nvim-treesitter",
+  lazy = false,
+  build = ":TSUpdate", -- ⭐ 新版本推荐保留
   opts = {
-    auto_install = true,
-    highlight = {
-      enable = true,
-    },
+    highlight = { enable = true },
+    indent = { enable = true },
   },
 }
